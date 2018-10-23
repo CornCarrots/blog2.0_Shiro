@@ -1,0 +1,61 @@
+.addCategory,.addTag,.addModule,.addOperation,.addRole{
+    text-align: center;
+    width: 30%;
+    margin: 30px auto;
+}
+.addCategory table,.addTag table,.addModule table,.addOperation table,.addRole table{
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+.addCategory table tbody tr>td,.addTag table tbody tr>td,.addModule table tbody tr>td,.addOperation table tbody tr>td,.addRole table tbody tr>td{
+    /*vertical-align: top;*/
+    text-align: left;
+}
+.advertisement table,.myCategory table,.myTag table,.myModule table,.myOperation table{
+    width: 60%;
+    margin: 10px auto;
+    text-align: center;
+}
+.advertisement table thead tr th,.myCategory table thead tr th,.myTag table thead tr th,.myModule table thead tr th,.myOperation table thead tr th{
+    text-align: center;
+}
+.advertisement table tbody tr td{
+    padding: 10px;
+    vertical-align: middle;
+}
+.myCategory table tbody tr td,.myTag table tbody tr td,.myModule table tbody tr td,.myOperation table tbody tr td{
+    line-height: 28px;
+}
+.myCategory_id,.myCategory_pid,.myCategory_status,.myTag_id,.myTag_status,.myModule_id,.myModule_pid,.myOperation_id{
+    width: 10%;
+}
+.myCategory_edit,.myTag_edit,.myModule_edit,.myOperation_edit{
+    width: 20%;
+}
+.myCategory_article,.myTag_article{
+    width: 15%;
+}
+.parentNode{
+    background-color: #009688;
+}
+.editCategoryModelDialog,.editRoleModelDialog,.editModuleModelDialog,.editOperationModelDialog,.editAdvertiseModelDialog{
+    width: 500px;
+}
+.editCategoryModelContent,.editOperationModelContent{
+    height: 290px;
+}
+.editRoleModelContent,.editCategoryModelContent{
+    height: 245px;
+}
+.editModuleModelContent{
+    height: 333px;
+}
+.editOperationModelContent{
+    height: 248px;
+}
+.editCategoryTable,.editTagTable,.editModuleTable,.editOperationTable,.editRoleTable,.editAdvertiseTable{
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 10px;
+}

@@ -1,0 +1,17 @@
+div.lunbo{
+    /*height: 510px;*/
+    /*width: 750px;*/
+    margin:0px auto;
+}
+div.lunbo .item img{
+    width: 100%;
+    height: 206px;!important;
+}
+div.carouselBackgroundDiv{
+    width:100%;
+    height:510px;
+    background-color:#e2e2e3;
+    position:absolute;
+    top:204px;
+    z-index:-1;
+}

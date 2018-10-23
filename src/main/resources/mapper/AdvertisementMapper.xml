@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lh.mapper.AdvertisementMapper">
+  <resultMap id="BaseResultMap" type="com.lh.bean.Advertisement">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="advertisement_role" jdbcType="INTEGER" property="advertisementRole" />
+    <result column="advertisement_path" jdbcType="VARCHAR" property="advertisementPath" />
+    <result column="menu_status" jdbcType="INTEGER" property="menuStatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, advertisement_role, advertisement_path, menu_status
+  </sql>
+  <select id="selectByExample" parameterType="com.lh.bean.AdvertisementExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from advertisement
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from advertisement
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from advertisement
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.Advertisement" useGeneratedKeys="true">
+    insert into advertisement (advertisement_role, advertisement_path, 
+      menu_status)
+    values (#{advertisementRole,jdbcType=INTEGER}, #{advertisementPath,jdbcType=VARCHAR}, 
+      #{menuStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lh.bean.Advertisement" useGeneratedKeys="true">
+    insert into advertisement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="advertisementRole != null">
+        advertisement_role,
+      </if>
+      <if test="advertisementPath != null">
+        advertisement_path,
+      </if>
+      <if test="menuStatus != null">
+        menu_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="advertisementRole != null">
+        #{advertisementRole,jdbcType=INTEGER},
+      </if>
+      <if test="advertisementPath != null">
+        #{advertisementPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null">
+        #{menuStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lh.bean.Advertisement">
+    update advertisement
+    <set>
+      <if test="advertisementRole != null">
+        advertisement_role = #{advertisementRole,jdbcType=INTEGER},
+      </if>
+      <if test="advertisementPath != null">
+        advertisement_path = #{advertisementPath,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null">
+        menu_status = #{menuStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lh.bean.Advertisement">
+    update advertisement
+    set advertisement_role = #{advertisementRole,jdbcType=INTEGER},
+      advertisement_path = #{advertisementPath,jdbcType=VARCHAR},
+      menu_status = #{menuStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

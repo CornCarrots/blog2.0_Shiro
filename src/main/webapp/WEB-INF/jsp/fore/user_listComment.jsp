@@ -74,7 +74,7 @@
                                                 </c:otherwise>
                                             </c:choose>
                                             <div class="allComment_table_edit" style="visibility:hidden">
-                                                <c:if test="${com.commentStatus()==1}">
+                                                <c:if test="${com.commentStatus==1}">
                                                     <a href="${pageContext.request.contextPath}/home/users/${user.id}/comments/shield/${com.id}"
                                                        class="editComment">屏蔽</a><span class="separate">|</span>
                                                     <a href="${pageContext.request.contextPath}/home/users/${user.id}/comments/allow/${com.id}"
